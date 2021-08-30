@@ -8,6 +8,7 @@ in {
 
   # fonts
   nerdfont-symbols-2048 = require ./pkgs/nerdfont-symbols/2048.nix { };
+  noto-fonts-jp = require ./pkgs/noto-fonts-jp { };
 
   # modified
   mlterm = super.mlterm.overrideAttrs (old: rec {
