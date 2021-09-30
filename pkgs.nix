@@ -7,6 +7,7 @@ in {
   ibus-skk = require ./pkgs/ibus-skk { };
   libvterm-neovim-mlterm = require ./pkgs/libvterm-neovim-mlterm { };
   parsec-bin = require ./pkgs/parsec-bin { };
+  qtbrynhildr = require ./pkgs/qtbrynhildr { };
   wcwidth-cjk = require ./pkgs/wcwidth-cjk { };
   wineasio = require ./pkgs/wineasio { };
 
