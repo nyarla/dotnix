@@ -5,6 +5,7 @@ in {
     require ./pkgs/deadbeef-file-browser-plugin { };
   ibus-skk = require ./pkgs/ibus-skk { };
   libvterm-neovim-mlterm = require ./pkgs/libvterm-neovim-mlterm { };
+  nsfminer = require ./pkgs/nsfminer { };
   parsec-bin = require ./pkgs/parsec-bin { };
   qtbrynhildr = require ./pkgs/qtbrynhildr { };
   wcwidth-cjk = require ./pkgs/wcwidth-cjk { };
@@ -17,6 +18,12 @@ in {
   # modified
   calibre = super.calibre.overrideAttrs (old: rec {
     buildInputs = [ super.python3Packages.pycrypto ] ++ old.buildInputs;
+  });
+
+  xmrig = super.xmrig.overrideAttrs (old: rec {
+    preConfigure = ''
+      sed -i 's/-Ofast/-Ofast -mavx2 -funroll-loops/g' cmake/flags.cmake
+    '';
   });
 
   perlPackages = (with super.perlPackages; {
