@@ -11,7 +11,7 @@ in stdenv.mkDerivation rec {
     mkdir -p noto
 
     ${lib.strings.concatMapStrings (font: ''
-      cp ${font} noto  
+      cp ${font} noto/${font.name} 
     '') files}
   '';
 
