@@ -72,7 +72,7 @@ in stdenv.mkDerivation rec {
     mkdir -p $out/lib/wine/x86_64-unix/
 
     ln -s ${wineasio_32bit}/lib/wine/wineasio.dll.so $out/lib/wine/i386-unix/wineasio.dll.so
-    ln -s ${wineasio_64bit}/lib/wine/wineasio.dll.so $out/lib/wine/x86_64-unix/wineasio.dll.so
+    ln -s ${wineasio_64bit}/lib64/wine/wineasio.dll.so $out/lib/wine/x86_64-unix/wineasio.dll.so
 
     mkdir -p $out/bin
     cd gui
