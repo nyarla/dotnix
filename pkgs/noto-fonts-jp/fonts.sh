@@ -22,8 +22,8 @@ for weight in Black Bold DemiLight Medium Regular Thin; do
 done
 
 for weight in Black Bold ExtraLight Light Medium Regular SemiBold; do
-  name="NotoSerifJP-${weight}.otf"
-  url="https://github.com/googlefonts/noto-cjk/raw/main/Serif/${name}"
+  name="NotoSerifCJKjp-${weight}.otf"
+  url="https://github.com/googlefonts/noto-cjk/raw/main/Serif/OTF/Japanese/${name}"
 
   fetch $name $url
 done

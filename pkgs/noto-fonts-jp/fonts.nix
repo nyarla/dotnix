@@ -36,45 +36,45 @@
     sha256 = "0b3pk30yp41jxwwqd37ljzal15xhissx0apmzs8rpsfdv297afr9";
   }
   {
-    name = "NotoSerifJP-Black.otf";
+    name = "NotoSerifCJKjp-Black.otf";
     url =
-      "https://github.com/googlefonts/noto-cjk/raw/main/Serif/NotoSerifJP-Black.otf";
-    sha256 = "0h4s9k245cbjylvnlm1y3xnbd5sk2yjf66d6dqcxrfrbwnw3ljc2";
+      "https://github.com/googlefonts/noto-cjk/raw/main/Serif/OTF/Japanese/NotoSerifCJKjp-Black.otf";
+    sha256 = "1ws0gxrcqx41ag79g3x2s02xbjx8nwwjdadhlvgbq1khjj2yq1bj";
   }
   {
-    name = "NotoSerifJP-Bold.otf";
+    name = "NotoSerifCJKjp-Bold.otf";
     url =
-      "https://github.com/googlefonts/noto-cjk/raw/main/Serif/NotoSerifJP-Bold.otf";
-    sha256 = "10r489hm09qn3l4cj40qmpgqijrbfhwmhfirzdh321cnhi26gyrn";
+      "https://github.com/googlefonts/noto-cjk/raw/main/Serif/OTF/Japanese/NotoSerifCJKjp-Bold.otf";
+    sha256 = "017fx38027lkv5dv5sx21slsc6is5ayafpljihwx4lmz54mdwsg7";
   }
   {
-    name = "NotoSerifJP-ExtraLight.otf";
+    name = "NotoSerifCJKjp-ExtraLight.otf";
     url =
-      "https://github.com/googlefonts/noto-cjk/raw/main/Serif/NotoSerifJP-ExtraLight.otf";
-    sha256 = "0nfvbxcmhpbjz516x8l804py63gcqxhn2hn2cxkp3mgsklqzzwfp";
+      "https://github.com/googlefonts/noto-cjk/raw/main/Serif/OTF/Japanese/NotoSerifCJKjp-ExtraLight.otf";
+    sha256 = "1nc806zr11cgq0jc9fmfz8hi26pgxbzy4h0ky9h3h32257xy0ld1";
   }
   {
-    name = "NotoSerifJP-Light.otf";
+    name = "NotoSerifCJKjp-Light.otf";
     url =
-      "https://github.com/googlefonts/noto-cjk/raw/main/Serif/NotoSerifJP-Light.otf";
-    sha256 = "0pl8bq3axlbjr6il2gjf27bg68r36p5k60v4fk0p6hp7wpqrq313";
+      "https://github.com/googlefonts/noto-cjk/raw/main/Serif/OTF/Japanese/NotoSerifCJKjp-Light.otf";
+    sha256 = "1f1241rdvwrpxq3xfb6hhavs1bca4mvjcjfavhl1624xx8y5qwig";
   }
   {
-    name = "NotoSerifJP-Medium.otf";
+    name = "NotoSerifCJKjp-Medium.otf";
     url =
-      "https://github.com/googlefonts/noto-cjk/raw/main/Serif/NotoSerifJP-Medium.otf";
-    sha256 = "1cbxml3ih4hpmdhz4zdccw59xni89ahx63wlc0iz5m055cylvlga";
+      "https://github.com/googlefonts/noto-cjk/raw/main/Serif/OTF/Japanese/NotoSerifCJKjp-Medium.otf";
+    sha256 = "1r8zxn1nsjyk8qww6hqm22rmf410r4zwhhzl1ajvk33gqgc2iaxm";
   }
   {
-    name = "NotoSerifJP-Regular.otf";
+    name = "NotoSerifCJKjp-Regular.otf";
     url =
-      "https://github.com/googlefonts/noto-cjk/raw/main/Serif/NotoSerifJP-Regular.otf";
-    sha256 = "17cdbbgda7d635qc5wschb95lgkn1xsnyb6m3j8gfy9rvvf7aa51";
+      "https://github.com/googlefonts/noto-cjk/raw/main/Serif/OTF/Japanese/NotoSerifCJKjp-Regular.otf";
+    sha256 = "1sg5n9qkq23q3igmshjy7ykb8vfg6ngc5hj1p6alwqky6nfhxkp7";
   }
   {
-    name = "NotoSerifJP-SemiBold.otf";
+    name = "NotoSerifCJKjp-SemiBold.otf";
     url =
-      "https://github.com/googlefonts/noto-cjk/raw/main/Serif/NotoSerifJP-SemiBold.otf";
-    sha256 = "1l1zf1gf9g5s7sy3awfd9r4vdd81r0ignpixm4x525rpq6qki2jd";
+      "https://github.com/googlefonts/noto-cjk/raw/main/Serif/OTF/Japanese/NotoSerifCJKjp-SemiBold.otf";
+    sha256 = "0dx2p42s656jm9jspzk7di9dnad0c1yw01ddjdx2fja14imsha1x";
   }
 ]
