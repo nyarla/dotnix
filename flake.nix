@@ -36,10 +36,13 @@
           buildInputs = [ super.python3Packages.pycrypto ] ++ old.buildInputs;
         });
 
-        xmrig = super.xmrig.overrideAttrs (old: rec {
+        xmrig = (super.xmrig.override {
+          stdenv = super.llvmPackages_13.stdenv;
+        }).overrideAttrs (old: rec {
           preConfigure = ''
-            sed -i 's/-Ofast/-Ofast -mavx2 -funroll-loops/g' cmake/flags.cmake
+            sed -i 's/-Ofast/-Ofast -funroll-loops/g' cmake/flags.cmake
           '';
+
         });
 
         perlPackages = (with super.perlPackages; {
