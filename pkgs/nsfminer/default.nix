@@ -1,5 +1,5 @@
-{ stdenv, fetchFromGitHub, fetchpatch, cmake, makeWrapper, pkg-config, boost
-, cudatoolkit_11_5, jsoncpp, mesa, ocl-icd, opencl-headers, opencl-info, openssl
+{ stdenv, fetchFromGitHub, cmake, makeWrapper, pkg-config, boost
+, cudatoolkit_11_3, jsoncpp, mesa, ocl-icd, opencl-headers, opencl-info, openssl
 }:
 stdenv.mkDerivation rec {
   pname = "nsfminer";
@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ cmake makeWrapper pkg-config ];
   buildInputs = [
     boost
-    cudatoolkit_11_5
+    cudatoolkit_11_3
     jsoncpp
     mesa
     ocl-icd
@@ -23,8 +23,6 @@ stdenv.mkDerivation rec {
     opencl-info
     openssl.dev
   ];
-
-  patches = [ ./optimize.patch ];
 
   cmakeFlags = [
     "-DHUNTER_ENABLED=OFF"
