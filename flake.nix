@@ -9,7 +9,7 @@
         ibus-skk = require ./pkgs/ibus-skk { };
         jackass = require ./pkgs/jackass { };
         libvterm-neovim-mlterm = require ./pkgs/libvterm-neovim-mlterm { };
-        nsfminer = require ./pkgs/nsfminer { };
+
         parsec-bin = require ./pkgs/parsec-bin { };
         qtbrynhildr = require ./pkgs/qtbrynhildr { };
         wcwidth-cjk = require ./pkgs/wcwidth-cjk { };
@@ -36,15 +36,6 @@
           buildInputs = [ super.python3Packages.pycrypto ] ++ old.buildInputs;
         });
 
-        xmrig = (super.xmrig.override {
-          stdenv = super.llvmPackages_13.stdenv;
-        }).overrideAttrs (old: rec {
-          preConfigure = ''
-            sed -i 's/-Ofast/-Ofast -funroll-loops/g' cmake/flags.cmake
-          '';
-
-        });
-
         perlPackages = (with super.perlPackages; {
           Shell = buildPerlPackage {
             pname = "Shell";
@@ -60,6 +51,24 @@
             };
           };
         }) // super.perlPackages;
+
+        # coin
+        nsfminer = (require ./pkgs/nsfminer {
+          stdenv = super.llvmPackages_13.stdenv;
+        }).overrideAttrs (old: rec {
+          preConfigure = old.preConfigure + ''
+            sed -i 's/set(CMAKE_CXX_FLAGS "''${CMAKE_CXX_FLAGS} -stdlib=libstdc++ -fcolor-diagnostics -Qunused-arguments")//' cmake/EthCompilerSettings.cmake
+          '';
+        });
+        xmrig = (super.xmrig.override {
+          stdenv = super.llvmPackages_13.stdenv;
+        }).overrideAttrs (old: rec {
+          preConfigure = ''
+            sed -i 's/-Ofast/-Ofast -funroll-loops/g' cmake/flags.cmake
+          '';
+
+        });
+
       };
   };
 }
