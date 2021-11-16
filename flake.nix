@@ -19,6 +19,10 @@
         nerdfont-symbols-2048 = require ./pkgs/nerdfont-symbols/2048.nix { };
         noto-fonts-jp = require ./pkgs/noto-fonts-jp { };
 
+        # icons, themes
+        victory-gtk-theme = require ./pkgs/victory-gtk-theme { };
+        flatery-icon-theme = require ./pkgs/flatery-icon-theme { };
+
         # modified
         bitwig-studio3 = super.bitwig-studio3.overrideAttrs (old: rec {
           version = "3.3.11";
