@@ -1,4 +1,4 @@
-{ multiStdenv, fetchzip, fetchurl, pkgs, pkgsi686Linux, wine, xorg }:
+{ multiStdenv, fetchzip, fetchFromGitHub, pkgs, pkgsi686Linux, wine, xorg }:
 let
   vst2sdk = fetchzip {
     url = "https://archive.org/download/VST2SDK/vst_sdk2_4_rev2.zip";
@@ -7,20 +7,22 @@ let
 in multiStdenv.mkDerivation rec {
   pname = "JackAss";
   version = "v1.1";
-  src = fetchurl {
-    url = "https://github.com/falkTX/${pname}/archive/${version}.tar.gz";
-    sha256 = "1wrkrzr1k0px0swv477pm0gbz13vr10q7m9z0dpz0s7vg6d3y2fd";
+  src = fetchFromGitHub {
+    owner = "falkTX";
+    repo = "JackAss";
+    rev = "275f21b4aa3a34da0c3f7f1a6c734880f50a360b";
+    sha256 = "1zh43wjh468dhqndbzjyd5l50p76a82azqmyl2rip9zvmj2b7kpz";
   };
 
   buildInputs =
     [ pkgs.libjack2 pkgsi686Linux.libjack2 wine xorg.libpthreadstubs ];
 
-  postUnpack = ''
-    cp -R ${vst2sdk}/* "JackAss-1.1"/vstsdk2.4/
-  '';
   prePatch = ''
+    cp -R ${vst2sdk}/* vstsdk2.4/
     chmod -R +w vstsdk2.4
-    sed -i 's|VST_EXPORT |VST_EXPORT VSTCALLBACK |g' vstsdk2.4/public.sdk/source/vst2.x/vstplugmain.cpp
+
+    sed -i 's|VST_EXPORT AEffect|VST_EXPORT VSTCALLBACK AEffect|g' vstsdk2.4/public.sdk/source/vst2.x/vstplugmain.cpp
+    sed -i 's|-O3|-O2|' Makefile
   '';
 
   buildPhase = ''
@@ -29,17 +31,18 @@ in multiStdenv.mkDerivation rec {
     make linux \
       CXXFLAGS=-I${pkgs.libjack2}/include \
       LDFLAGS="-L${pkgs.libjack2}/lib -ljack"
-    cp JackAss.so $out/lib/vst/JackAss/
+    cp JackAss*.so $out/lib/vst/JackAss/
     make clean
 
+
     make wine32
-      CXXFLAGS=-I${pkgsi686Linux.libjack2}/include \
+      CXXFLAGS="-I${pkgsi686Linux.libjack2}/include" \
       LDFLAGS="-L${pkgsi686Linux.libjack2}/lib -ljack"
     cp JackAss*.dll $out/lib/vst/JackAss/
     make clean
 
     make wine64 \
-      CXXFLAGS=-I${pkgs.libjack2}/include \
+      CXXFLAGS="-I${pkgs.libjack2}/include" \
       LDFLAGS="-L${pkgs.libjack2}/lib -ljack"
     cp JackAss*.dll $out/lib/vst/JackAss/
     make clean
