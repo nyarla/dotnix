@@ -4,8 +4,8 @@ let
   source = fetchFromGitHub {
     owner = "wineasio";
     repo = "wineasio";
-    rev = "0a97f2f9e29c133349237cdd88fec4615cc72931";
-    sha256 = "1358541j6qild0p2v1spyq9yhiji9j85k4znx0xrlsp2ny3kmp25";
+    rev = "4b4f68165f963a7396118817fc1a97232782e1b2";
+    sha256 = "sha256-kh6pZSZNEmaQH6nzT+CpS3oBfde0maNRmtSHKOffIMs=";
     fetchSubmodules = true;
   };
 
@@ -28,11 +28,14 @@ let
         make ${arch}
       '';
 
-      libPrefix = if arch == "32" then "lib/wine" else "lib64/wine";
+      libPrefix = if arch == "32" then "lib/wine/i386" else "lib/wine/x86_64";
 
       installPhase = ''
-        mkdir -p $out/${libPrefix}
-        cp build${arch}/wineasio.dll.so $out/${libPrefix}/wineasio.dll.so
+        mkdir -p $out/${libPrefix}-windows/
+        mkdir -p $out/${libPrefix}-unix/
+
+        cp build${arch}/wineasio.dll $out/${libPrefix}-windows/
+        cp build${arch}/wineasio.dll.so $out/${libPrefix}-unix/
       '';
 
       dontFixup = true;
@@ -68,11 +71,15 @@ in stdenv.mkDerivation rec {
   '';
 
   installPhase = ''
-    mkdir -p $out/lib/wine/i386-unix/
-    mkdir -p $out/lib/wine/x86_64-unix/
+    for bit in i386 x86_64 ; do
+      mkdir -p $out/lib/wine/''${bit}-unix/
+      mkdir -p $out/lib/wine/''${bit}-windows/
+    done
 
-    ln -s ${wineasio_32bit}/lib/wine/wineasio.dll.so $out/lib/wine/i386-unix/wineasio.dll.so
-    ln -s ${wineasio_64bit}/lib64/wine/wineasio.dll.so $out/lib/wine/x86_64-unix/wineasio.dll.so
+    cp ${wineasio_32bit}/lib/wine/i386-windows/wineasio.dll $out/lib/wine/i386-windows/
+    cp ${wineasio_32bit}/lib/wine/i386-unix/wineasio.dll.so $out/lib/wine/i386-unix/
+    cp ${wineasio_64bit}/lib/wine/x86_64-windows/wineasio.dll $out/lib/wine/x86_64-windows/
+    cp ${wineasio_64bit}/lib/wine/x86_64-unix/wineasio.dll.so $out/lib/wine/x86_64-unix/
 
     mkdir -p $out/bin
     cd gui
