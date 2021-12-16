@@ -7,7 +7,6 @@
         deadbeef-file-browser-plugin =
           require ./pkgs/deadbeef-file-browser-plugin { };
         ibus-skk = require ./pkgs/ibus-skk { };
-        jackass = require ./pkgs/jackass { };
         libvterm-neovim-mlterm = require ./pkgs/libvterm-neovim-mlterm { };
 
         parsec-bin = require ./pkgs/parsec-bin { };
