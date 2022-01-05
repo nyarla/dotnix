@@ -8,11 +8,13 @@
           require ./pkgs/deadbeef-file-browser-plugin { };
         ibus-skk = require ./pkgs/ibus-skk { };
         jackass = require ./pkgs/jackass { };
+        jackass-bin = require ./pkgs/jackass-bin { };
         libvterm-neovim-mlterm = require ./pkgs/libvterm-neovim-mlterm { };
 
         parsec-bin = require ./pkgs/parsec-bin { };
         qtbrynhildr = require ./pkgs/qtbrynhildr { };
         wcwidth-cjk = require ./pkgs/wcwidth-cjk { };
+        wine-vst-wrapper = require ./pkgs/wine-vst-wrapper { };
         wineasio = require ./pkgs/wineasio { };
 
         # fonts
