@@ -4,11 +4,11 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "fumiyas";
     repo = "wcwidth-cjk";
-    rev = "b15d9d13e1a4c3e7a281cae53135315348eaf9e0";
-    sha256 = "1127cdwpl2shv1lsg7l1q0cyf9x6qyvl25c3m0gfpvha305i45bi";
+    rev = "a1b1e2c346a563f6538e46e1d29c265bdd5b1c9a";
+    sha256 = "182z37h2k2r27xf2916j58myfsjqfkpfgykg9nw05kanppql16hj";
   };
 
-  patches = [ ./waltarix.patch ];
+  #patches = [ ./waltarix.patch ];
 
   buildInputs = [ autoreconfHook ];
 

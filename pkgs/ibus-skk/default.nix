@@ -1,5 +1,5 @@
 { stdenv, fetchurl, pkgconfig, intltool, vala, wrapGAppsHook, python3, lib
-, gobjectIntrospection, glib, dbus-glib, gnome3, ibus, libskk, gtk2, gtk3
+, gobjectIntrospection, glib, dconf, libgee, dbus-glib, ibus, libskk, gtk2, gtk3
 , layout ? "jp" }:
 stdenv.mkDerivation rec {
   version = "1.4.3";
@@ -27,8 +27,7 @@ stdenv.mkDerivation rec {
     gobjectIntrospection
   ];
 
-  buildInputs =
-    [ glib dbus-glib gtk2 gtk3 libskk gnome3.dconf gnome3.libgee ibus ];
+  buildInputs = [ glib dbus-glib gtk2 gtk3 libskk dconf libgee ibus ];
 
   postPatch = ''
     sed -i "s!<layout>jp</layout>!<layout>${layout}</layout>!" src/skk.xml.in.in

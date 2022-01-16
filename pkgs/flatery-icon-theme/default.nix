@@ -5,8 +5,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "cbrnix";
     repo = "Flatery";
-    rev = "b4cffbca5e19d79f12d2e81569313e3d451c9ed3";
-    sha256 = "sha256-EsWHTspVkI0lqVchc0Ur9Dvn46U4fmc9+fjmBB5pgc4=";
+    rev = "cdd59fa55c5116e7ff9dbeb470fde9348c9cd1b7";
+    sha256 = "0kpfzf7viqmbym6w02sg8ql3gqrb53b59fi8bb41x12j9xbrsr3v";
   };
 
   dontFixup = true;
