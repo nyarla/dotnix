@@ -4,8 +4,8 @@ let
   source = fetchFromGitHub {
     owner = "wineasio";
     repo = "wineasio";
-    rev = "0919680d7ad87b3456407d35c54b9d25fcb3a48f";
-    sha256 = "083hzk59zzc47x7m6d65f0vanmcgv402rlqfyffqaqhjsagashav";
+    rev = "56c3e9da95b467f1f64ba069864c35762251a734";
+    sha256 = "1skps23przjjfw5j74nkxnrqbixy9z54rh738a6yypczvj7wjj8w";
     fetchSubmodules = true;
   };
 
