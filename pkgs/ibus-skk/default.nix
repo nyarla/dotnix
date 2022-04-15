@@ -1,6 +1,6 @@
 { stdenv, fetchurl, pkgconfig, intltool, vala, wrapGAppsHook, python3, lib
-, gobjectIntrospection, glib, dconf, libgee, dbus-glib, ibus, libskk, gtk2, gtk3
-, layout ? "jp" }:
+, gobject-introspection, glib, dconf, libgee, dbus-glib, ibus, libskk, gtk2
+, gtk3, layout ? "jp" }:
 stdenv.mkDerivation rec {
   version = "1.4.3";
   name = "ibus-skk-${version}";
@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
     vala
     python3.pkgs.wrapPython
     wrapGAppsHook
-    gobjectIntrospection
+    gobject-introspection
   ];
 
   buildInputs = [ glib dbus-glib gtk2 gtk3 libskk dconf libgee ibus ];
@@ -35,7 +35,8 @@ stdenv.mkDerivation rec {
 
   postInstall = ''
     mkdir -p $out/share/gsettings-schemas/${name}/glib-2.0/schemas/
-    cp src/org.freedesktop.ibus.engine.skk.gschema.xml $out/share/gsettings-schemas/${name}/glib-2.0/schemas/
+    cp src/org.freedesktop.ibus.engine.skk.gschema.xml \
+      $out/share/gsettings-schemas/${name}/glib-2.0/schemas/org.freedesktop.ibus.engine.skk.xml
   '';
 
   postFixup = "wrapPythonPrograms";
